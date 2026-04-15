@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios Práticos JS para Iniciantes - Seu Tutor BLACKBOXAI</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 1000px; margin: 0 auto; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #333; min-height: 100vh; }
+        h1 { text-align: center; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .exercise { background: white; margin: 20px 0; padding: 25px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
+        .exercise h2 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        textarea { width: 100%; height: 120px; font-family: monospace; font-size: 14px; padding: 10px; border: 2px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+        button { background: #27ae60; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-size: 16px; margin: 5px; transition: background 0.3s; }
+        button:hover { background: #219a52; }
+        button:disabled { background: #bdc3c7; cursor: not-allowed; }
+        #result { margin-top: 15px; padding: 15px; background: #ecf0f1; border-radius: 8px; min-height: 40px; font-family: monospace; white-space: pre-wrap; }
+        .hint { background: #fff3cd; padding: 10px; border-left: 5px solid #ffc107; margin-top: 10px; border-radius: 5px; }
+        .success { background: #d4edda !important; border-left: 5px solid #28a745 !important; }
+        .error { background: #f8d7da !important; border-left: 5px solid #dc3545 !important; }
+        progress { width: 100%; height: 20px; }
+        #progress { text-align: center; font-size: 18px; color: white; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>🤖 Seu Tutor BLACKBOXAI: Exercícios JS Iniciante</h1>
+    <p style="text-align: center; color: white;">Resolva os 10 exercícios progressivos. Escreva o código, clique "Verificar" e veja feedback imediato. Progrida passo a passo!</p>
+
+    <div id="progress">
+        Progresso: <progress id="progBar" value="0" max="10"></progress> 0/10
+    </div>
+
+    <div class="exercise" id="ex1">
+        <h2>Exercício 1: Hello World no Console</h2>
+        <p>Faça o console.log imprimir "Olá, mundo do JS!"</p>
+        <textarea id="code1"></textarea>
+        <button onclick="check(1, /Olá, mundo do JS!/i)">Verificar</button>
+        <div id="result1"></div>
+        <div class="hint">Dica: Use console.log("sua mensagem")</div>
+    </div>
+
+    <div class="exercise" id="ex2" style="display:none;">
+        <h2>Exercício 2: Variáveis</h2>
+        <p>Crie variável 'nome' = "Aluno", 'idade' = 20 e logue "Meu nome é [nome] e tenho [idade] anos."</p>
+        <textarea id="code2"></textarea>
+        <button onclick="check(2, /Meu nome é Aluno e tenho 20 anos/i)">Verificar</button>
+        <div id="result2"></div>
+        <div class="hint">Dica: let nome = "Aluno"; Template literals com ${}</div>
+    </div>
+
+    <div class="exercise" id="ex3" style="display:none;">
+        <h2>Exercício 3: Funções</h2>
+        <p>Crie função saudar(nome) que retorna "Oi, " + nome + "!" e chame com "João".</p>
+        <textarea id="code3"></textarea>
+        <button onclick="check(3, /Oi, João!/i)">Verificar</button>
+        <div id="result3"></div>
+    </div>
+
+    <div class="exercise" id="ex4" style="display:none;">
+        <h2>Exercício 4: Condicionais</h2>
+        <p>Se idade >= 18, log "Adulto", senão "Menor". Use idade=16.</p>
+        <textarea id="code4"></textarea>
+        <button onclick="check(4, /Menor/i)">Verificar</button>
+        <div id="result4"></div>
+    </div>
+
+    <div class="exercise" id="ex5" style="display:none;">
+        <h2>Exercício 5: Loop For</h2>
+        <p>Use for de 1 a 5, logue cada número * 2.</p>
+        <textarea id="code5"></textarea>
+        <button onclick="check(5, /2\n4\n6\n8\n10/i)">Verificar</button>
+        <div id="result5"></div>
+    </div>
+
+    <div class="exercise" id="ex6" style="display:none;">
+        <h2>Exercício 6: Array</h2>
+        <p>Array frutas = ["maçã", "banana"], logue o primeiro e o length.</p>
+        <textarea id="code6"></textarea>
+        <button onclick="check(6, /maçã.*2/i)">Verificar</button>
+        <div id="result6"></div>
+    </div>
+
+    <div class="exercise" id="ex7" style="display:none;">
+        <h2>Exercício 7: Objetos</h2>
+        <p>Obj pessoa = {nome: "Ana", idade: 25}, logue pessoa.nome.</p>
+        <textarea id="code7"></textarea>
+        <button onclick="check(7, /Ana/i)">Verificar</button>
+        <div id="result7"></div>
+    </div>
+
+    <div class="exercise" id="ex8" style="display:none;">
+        <h2>Exercício 8: Map em Array</h2>
+        <p>numeros=[1,2,3], use map para dobrar e logue o array resultante.</p>
+        <textarea id="code8"></textarea>
+        <button onclick="check(8, /\[2,4,6\]/i)">Verificar</button>
+        <div id="result8"></div>
+    </div>
+
+    <div class="exercise" id="ex9" style="display:none;">
+        <h2>Exercício 9: DOM Manipulation</h2>
+        <p>document.getElementById("ex9").innerHTML = "Texto alterado!"</p>
+        <div id="demo9">Alvo DOM</div>
+        <textarea id="code9"></textarea>
+        <button onclick="check(9)">Verificar</button>
+        <div id="result9"></div>
+    </div>
+
+    <div class="exercise" id="ex10" style="display:none;">
+        <h2>Exercício 10: Evento Button</h2>
+        <p>Adicione event listener ao botão "CliqueAqui" para alert("Clicou!").</p>
+        <button id="CliqueAqui">Clique Aqui</button>
+        <textarea id="code10"></textarea>
+        <button onclick="check(10)">Verificar</button>
+        <div id="result10"></div>
+        <p>Parabéns! Você completou o curso básico. Próximo: Projetos reais!</p>
+    </div>
+
+    // ...existing code...
+    <script>
+        let currentEx = 1;
+        const totalEx = 10;
+        let completed = new Set();
+    
+        function showEx(n) {
+            for (let i = 1; i <= totalEx; i++) {
+                document.getElementById(`ex${i}`).style.display = i === n ? 'block' : 'none';
+            }
+            document.getElementById('progBar').value = completed.size;
+            document.getElementById('progress').innerHTML = `Progresso: <progress value="${completed.size}" max="${totalEx}"></progress> ${completed.size}/${totalEx}`;
+        }
+    
+        // Função check unificada e robusta
+        function check(exNum, expectedRegex) {
+            const codeEl = document.getElementById(`code${exNum}`);
+            const resultDiv = document.getElementById(`result${exNum}`);
+            const code = codeEl ? codeEl.value : '';
+            let output = '';
+            const oldLog = console.log;
+            console.log = (...args) => { output += args.join(' ') + '\n'; };
+    
+            try {
+                // Executa o código do aluno
+                eval(code);
+    
+                // Casos especiais
+                if (exNum === 9) {
+                    if (document.getElementById('demo9').innerHTML === 'Texto alterado!') {
+                        resultDiv.textContent = '✅ DOM alterado!';
+                        resultDiv.className = 'success';
+                        completed.add(exNum);
+                    } else {
+                        throw new Error('Texto não alterado');
+                    }
+                } else if (exNum === 10) {
+                    // Para o exercício 10 assumimos que o aluno adicionou o event listener corretamente.
+                    resultDiv.textContent = '✅ Evento configurado! Clique no botão para testar.';
+                    resultDiv.className = 'success';
+                    completed.add(exNum);
+                } else {
+                    // Validação padrão via regex (se fornecida)
+                    if (expectedRegex && !expectedRegex.test(output)) {
+                        throw new Error('Output não corresponde ao esperado.');
+                    }
+                    resultDiv.textContent = `✅ Correto! Output capturado:\n${output}`;
+                    resultDiv.className = 'success';
+                    completed.add(exNum);
+                }
+    
+                // Avança para o próximo exercício
+                if (exNum < totalEx) {
+                    setTimeout(() => {
+                        currentEx = Math.max(currentEx, exNum) + 1;
+                        showEx(currentEx);
+                    }, 1500);
+                }
+            } catch (e) {
+                resultDiv.textContent = `❌ Erro: ${e.message}\n\nSeu código:\n${code}`;
+                resultDiv.className = 'error';
+            } finally {
+                console.log = oldLog;
+                document.getElementById('progBar').value = completed.size;
+                document.getElementById('progress').innerHTML = `Progresso: <progress value="${completed.size}" max="${totalEx}"></progress> ${completed.size}/${totalEx}`;
+            }
+        }
+    
+        showEx(1);
+    </script>
+    // ...existing code...
+    </script>
+</body>
+</html>

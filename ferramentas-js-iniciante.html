@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principais Ferramentas para Iniciantes em JavaScript</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; background: #f4f4f4; color: #333; }
+        h1, h2 { color: #2c3e50; }
+        h1 { text-align: center; }
+        section { background: white; margin: 20px 0; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        code { background: #f8f9fa; padding: 2px 4px; border-radius: 4px; font-family: 'Courier New', monospace; }
+        pre { background: #2d3748; color: #a0aec0; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        button { background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #2980b9; }
+        #output { margin-top: 10px; padding: 10px; background: #ecf0f1; border-radius: 5px; min-height: 50px; }
+        ul { padding-left: 20px; }
+        .tool-card { display: flex; align-items: center; margin: 10px 0; padding: 10px; background: #e8f4fd; border-left: 4px solid #3498db; }
+        .tool-card img { width: 50px; height: 50px; margin-right: 15px; }
+    </style>
+</head>
+<body>
+    <h1>🚀 Principais Ferramentas para Iniciantes em JavaScript</h1>
+    <p>Olá! Aqui está um guia prático e interativo para as ferramentas essenciais para quem está começando com JS. Cada seção tem exemplos que você pode testar agora mesmo. Salve este arquivo como HTML e abra no navegador!</p>
+
+    <section>
+        <h2>1. Console do Navegador (F12) - A primeira ferramenta!</h2>
+        <p>Aperte F12 no navegador (Chrome/Firefox) > aba Console. É onde você testa JS rapidinho.</p>
+        <div class="tool-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/5814/5814008.png" alt="Console">
+            <div>
+                <p><strong>Teste agora:</strong> Abra F12, cole isso no console e aperte Enter:</p>
+                <pre>console.log("Olá, JS!"); let nome = "Usuário"; console.log(`Bem-vindo, ${nome}!`);</pre>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Editor VSCode - Seu workspace principal</h2>
+        <p>Você já usa! Instale extensões: "Live Server", "ES7+ React/Redux", "Prettier".</p>
+        <div class="tool-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/7336/7336435.png" alt="VSCode">
+            <p>Criar arquivo .js, aperte Ctrl+F5 com Live Server para rodar.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Node.js e npm - Rodar JS no terminal</h2>
+        <p>Baixe em <a href="https://nodejs.org" target="_blank">nodejs.org</a>. Verifique: <code>node -v</code> e <code>npm -v</code>.</p>
+        <div class="tool-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968708.png" alt="Node.js">
+            <p>Crie um arquivo test.js e rode <code>node test.js</code> no terminal.</p>
+        </div>
+        <h3>Exemplo Interativo (npm não precisa aqui):</h3>
+        <button onclick="demoNode()">Simular Node.js</button>
+        <div id="output"></div>
+    </section>
+
+    <section>
+        <h2>4. Editores Online (CodePen, Replit, JSFiddle)</h2>
+        <p>Sem instalar nada! Perfeito para protótipos.</p>
+        <ul>
+            <li><a href="https://codepen.io/pen/" target="_blank">CodePen</a> - HTML/CSS/JS</li>
+            <li><a href="https://replit.com/languages/javascript" target="_blank">Replit</a> - Projetos completos</li>
+            <li><a href="https://jsfiddle.net" target="_blank">JSFiddle</a> - Rápido</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>5. Gerenciador de Pacotes: npm/yarn</h2>
+        <p>Para bibliotecas como Express ou React mais tarde.</p>
+        <pre>npm init -y
+npm install lodash</pre>
+    </section>
+
+    <section>
+        <h2>6. Prática Interativa: Teste seu JS aqui!</h2>
+        <textarea id="code" rows="5" cols="50" placeholder="Escreva JS aqui... ex: console.log('Teste!')">
+console.log("Olá do playground!");
+let idade = 25;
+if (idade >= 18) {
+  console.log("Maior de idade!");
+}
+        </textarea><br>
+        <button onclick="runCode()">Executar</button>
+        <button onclick="clearOutput()">Limpar</button>
+        <pre id="consoleOutput"></pre>
+    </section>
+
+    <section>
+        <h2>Próximos Passos</h2>
+        <ol>
+            <li>Pratique no console F12 todos os dias.</li>
+            <li>Instale Node.js e crie um projeto: <code>npm init -y</code>.</li>
+            <li>Faça projetos no CodePen.</li>
+            <li>Aprenda Git: <code>git init</code>.</li>
+            <li>Recursos grátis: freeCodeCamp, MDN Web Docs.</li>
+        </ol>
+    </section>
+
+    <script>
+        function demoNode() {
+            document.getElementById('output').innerHTML = '<strong>Simulando terminal Node.js:</strong><br>Olá do Node!<br>Versão: v20.x<br>(rode "node -v" no seu terminal)';
+        }
+
+        function runCode() {
+            const code = document.getElementById('code').value;
+            const output = document.getElementById('consoleOutput');
+            try {
+                let result = '';
+                const consoleLog = (msg) => { result += msg + '\\n'; };
+                consoleLog = consoleLog.bind(window); // Override for capture
+                const oldLog = console.log;
+                console.log = (...args) => { result += args.map(String).join(' ') + '\\n'; };
+                eval(code);
+                console.log = oldLog;
+                output.textContent = result || 'Executado sem logs!';
+                output.style.background = '#d4edda';
+            } catch (e) {
+                output.textContent = 'Erro: ' + e.message;
+                output.style.background = '#f8d7da';
+            }
+        }
+
+        function clearOutput() {
+            document.getElementById('consoleOutput').textContent = '';
+            document.getElementById('output').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
